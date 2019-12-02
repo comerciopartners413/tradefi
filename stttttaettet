@@ -1,0 +1,89 @@
+[1mdiff --git a/resources/views/layouts/header_.blade.php b/resources/views/layouts/header_.blade.php[m
+[1mindex 8e5c306..1768bbd 100644[m
+[1m--- a/resources/views/layouts/header_.blade.php[m
+[1m+++ b/resources/views/layouts/header_.blade.php[m
+[36m@@ -224,9 +224,9 @@[m
+                                     <li>[m
+                                         <a href="{{ url('/trade-room') }}"><i class="fa fa-genderless c-accent"></i>&nbsp;Start Trade</a>[m
+                                     </li>[m
+[31m-                                    <li>[m
+[32m+[m[32m                                    {{-- <li>[m
+                                         <a href="{{ url('/trade-room/easymode') }}"><i class="fa fa-genderless c-accent"></i>&nbsp;Easy Mode</a>[m
+[31m-                                    </li>[m
+[32m+[m[32m                                    </li> --}}[m
+                                  @endif[m
+                             </ul>[m
+                         </li>[m
+[36m@@ -544,7 +544,7 @@[m [mX</button>[m
+                                             <div class="form-group form-group-default">[m
+                                                 <label> Deposit Amount </label>[m
+                                                 <input type="text" name="fake_amount" id="fake_amount"  placeholder="Enter Here" class="smartinput form-control " required="" aria-required="true">[m
+[31m-                                                ( A 1.5% fee will be charged on your deposit)[m
+[32m+[m[32m                                                (A 1.5% fee will be charged on your deposit by NIBSS, capped at N2,000 for deposit of N140,000 and above). Please note that minimum deposit is N100,000[m
+                                                 <input type="hidden" name="amount" value="">[m
+                                             </div>[m
+                                         </div>[m
+[36m@@ -577,7 +577,7 @@[m [mX</button>[m
+                                                 <div class="col-sm-6">[m
+                                                     <div class="form-group form-group-default">[m
+                                                         <label>Amount to Withdraw</label>[m
+[31m-                                                        <input type="text" id="withdrawal-amount" name="Amount" placeholder="Enter Amount" class="form-control smartinput" required="" aria-required="true">[m
+[32m+[m[32m                                                        <input type="text" id="withdrawal-amount" name="Amount" placeholder="Enter Amount" class="form-control smartinput2" required="" aria-required="true">[m
+                                                         {{-- Hidden fields for withdrawals --}}[m
+                                                     <input type="hidden" name="GLIDDebit" value="{{ \DB::table('tblGL')->select('GLRef')[m
+                                                         ->where('CustomerID', auth()->user()->id)[m
+[36m@@ -672,6 +672,7 @@[m [mX</button>[m
+     <script src="{{ asset('webapp/scripts/luna.js') }}"></script>[m
+     <script  src="{{ asset('js/sha256.min.js') }}"></script>[m
+     <script src="{{ asset('js/app.js') }}"></script>[m
+[32m+[m[32m    <script src="{{ asset('js/autonumeric/autoNumeric.min.js') }}"></script>[m
+     <script src="{{ asset('js/traderoom_countdown.js') }}"></script>[m
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.13/plugins/responsive/responsive.min.js"></script>[m
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js"></script>[m
+[36m@@ -768,9 +769,23 @@[m [mX</button>[m
+          [m
+     </script>[m
+ [m
+[32m+[m[32m     <script>[m
+[32m+[m[32m        AutoNumeric.multiple('.smartinput2', {[m
+[32m+[m[32m            currencySymbol : '₦ ',[m
+[32m+[m[32m            decimalCharacter : '.',[m
+[32m+[m[32m            unformatOnSubmit: true,[m
+[32m+[m[32m            modifyValueOnWheel: false,[m
+[32m+[m[32m            minimumValue: 0,[m
+[32m+[m[32m            decimalPlaces: 2,[m
+[32m+[m[32m            decimalPlacesRawValue: 0,[m
+[32m+[m[32m        });[m
+[32m+[m[32m      </script>[m
+[32m+[m
+     <script type="text/javascript">[m
+         $(function() {[m
+ [m
+[32m+[m
+[32m+[m
+             $('.datatable').DataTable({[m
+                 dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",[m
+                 "lengthMenu": [[m
+[1mdiff --git a/resources/views/trade_room/index.blade.php b/resources/views/trade_room/index.blade.php[m
+[1mindex 59ef5e2..da8cba4 100644[m
+[1m--- a/resources/views/trade_room/index.blade.php[m
+[1m+++ b/resources/views/trade_room/index.blade.php[m
+[36m@@ -2,6 +2,9 @@[m
+ [m
+ @push('styles')[m
+     <style>[m
+[32m+[m[32m    body {[m
+[32m+[m[32m        font-size: 1.5rem !important;[m
+[32m+[m[32m    }[m
+         .security-name {[m
+                 color: #fff;[m
+         font-weight: bold;[m
+[36m@@ -1796,7 +1799,7 @@[m [mbackground: linear-gradient(to bottom, #19547b, #ffd89b); /* W3C, IE 10+/ Edge,[m
+                 volume.smartInput();[m
+                 volume.keyup(function(e) {[m
+                     // e.preventDefault();[m
+[31m-                    [m
+[32m+[m
+                    if(product == 1){[m
+                         var cost = accounting.unformat($(this).val()) [m
+                         var consideration = accounting.unformat($(this).val()) * price / 100[m

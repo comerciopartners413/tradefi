@@ -1,0 +1,287 @@
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+	
+	.modal.right .modal-dialog {
+		position: fixed;
+		margin: auto;
+		width: 620px;
+		height: 100%;
+		-webkit-transform: translate3d(0%, 0, 0);
+		    -ms-transform: translate3d(0%, 0, 0);
+		     -o-transform: translate3d(0%, 0, 0);
+		        transform: translate3d(0%, 0, 0);
+	}
+
+	
+	.modal.right .modal-content {
+		/*height: 100%; */
+		overflow-y: auto;
+	}
+       .modal.left .modal-content {
+		
+		overflow-y: auto;
+	}
+        .modal.left .modal-dialog {
+		position: fixed;
+		margin: auto;
+		width: 400px;
+		/*height: 100%; */
+		-webkit-transform: translate3d(0%, 0, 0);
+		    -ms-transform: translate3d(0%, 0, 0);
+		     -o-transform: translate3d(0%, 0, 0);
+		        transform: translate3d(0%, 0, 0);
+	}
+	
+	.modal.left .modal-body{
+
+
+         }
+	.modal.right .modal-body {
+		padding: 15px 15px 0px;
+	}
+
+/*Left*/
+	.modal.left.fade .modal-dialog{
+		left: -320px;
+		-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+		        transition: opacity 0.3s linear, left 0.3s ease-out;
+	}
+	
+	.modal.left.fade.in .modal-dialog{
+		left: 0;
+	}
+        
+/*Right*/
+	.modal.right.fade .modal-dialog {
+		right: -320px;
+		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		        transition: opacity 0.3s linear, right 0.3s ease-out;
+	}
+	
+	.modal.right.fade.in .modal-dialog {
+		right: 0;
+	}
+
+/* ----- MODAL STYLE ----- */
+	.modal-content {
+		border-radius: 10px;
+		border: none;
+	}
+
+	.modal-header {
+		border-bottom-color: #EEEEEE;
+		background-color: #F2F2FA;
+	}
+
+
+/* .modal-fullscreen */
+
+
+.modal-fullscreen {
+  background: transparent;
+}
+.modal-fullscreen .modal-contentfull {
+  background: white;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.modal-backdrop.modal-backdrop-fullscreen {
+  background: #ffffff;
+}
+.modal-backdrop.modal-backdrop-fullscreen.in {
+  opacity: .97;
+  filter: alpha(opacity=97);
+}
+
+/* .modal-fullscreen size: we use Bootstrap media query breakpoints */
+
+.modal-fullscreen .modal-dialogfull {
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .modal-fullscreen .modal-dialog {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-fullscreen .modal-dialog {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-fullscreen .modal-dialog {
+     width: 1170px;
+  }
+}
+/********* custom comment box  ***************/
+.comment_div {
+    background:white; 
+  //  width:250px; 
+    padding:10px;
+    display:block;
+  //  border-radius: 10px;
+}
+
+.pointer{
+    border:solid 20px transparent;
+    border-right-color:#fff;
+    position:absolute;
+    margin:0px 0 0 -38px;
+    z-index:999;
+   
+}
+/********* custom comment box  ***************/
+
+
+
+
+/********* custom popup box (not in use -- remember to delete it demola)  ***************/
+#popUpDiv{
+    z-index: 100;
+    position: absolute;
+    background-color: rgba(123, 123,123, 0.8);
+    display: none;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 300px;
+}
+#popupSelect{
+    z-index: 1000;
+    position: absolute;
+    top: 130px;
+    left: 50px;
+}
+
+.divSec1{
+width: 100%;
+height:300px;
+overflow:auto;
+}
+
+.divSec2{
+width: 100%;
+height:500px;
+overflow:auto;
+}
+
+
+#divSec3{
+width: 100%;
+height:500px;
+overflow:hidden;
+}
+
+#divSubsec1{
+width: 100%;
+height:250px;
+overflow:auto;
+}
+
+#divSubsec2{
+width: 100%;
+height:300px;
+overflow:hidden;
+}
+.chartdiv{
+
+width: 100%;
+height		: 200px;
+font-size	: 11px;
+
+
+}
+
+/********* end custom popup box  ***************/
+
+
+/********* dashboard feed box  ***************/
+.glyphicon
+{
+    margin-right:4px !important; /*override*/
+}
+
+.pagination .glyphicon
+{
+    margin-right:0px !important; /*override*/
+}
+
+.pagination a
+{
+    color:#555;
+}
+
+.ulcust
+{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+    color: lightgoldenrodyellow;
+    height: 203px;
+}
+
+.news-item
+{
+    padding:14px 4px 20px 4px;
+    margin:0px;
+    border-bottom:1px dotted #555; 
+}
+
+/********* end of dashboard feed box  ***************/
+
+
+
+/********* General Application Unique colors  ***************/
+
+
+.isell
+{
+    color: #d8c180; 
+}
+
+.ibuy
+{
+    color: #80c3d8; 
+}
+
+.security
+{
+    color: #FFD700; 
+}
+
+.gr{
+
+ color: #79A924;
+
+ }
+
+.red{
+
+ color:#be4e46;
+
+ }
+.td2{
+  padding: 15px 15px;
+
+}
+.tdH{
+
+  /*  background: #EEE;
+    border-color: #BBB;
+    border-radius: 2px; */
+    font-size: medium;
+    font-weight: 500;
+}
+
+

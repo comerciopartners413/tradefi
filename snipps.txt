@@ -1,0 +1,55 @@
+---tbody for portfolio
+
+ <tbody class="row-details hide security-{{ $pl_bonds->SecurityID }}">
+                                                                @foreach( collect(\DB::select("EXEC procBondsPL_Portfolio '$tradedate',  $current_user_id, $pl_bonds->SecurityID, 'Details'")) as $row)
+                                                                 <tr>
+                                                                    <td></td>
+                                                                     <td style="width: 100px">{{ $row->Security }}</td>
+                                                             <td>{{ number_format($row->Position, 2) }}</td>
+                                                                    
+                                                                    <td>{{ number_format($row->Yield, 2) }}%</td>
+                                                                    {{-- <td> {{ number_format($row->ClosingMktPrice, 2) }} </td> --}}
+                                                                    <td> {{ number_format($row->CleanPrice, 2) }} </td>
+                                                                    <td> {{ number_format($row->DirtyPrice, 2) }} </td>
+                                                                    <td>{{ number_format($row->ClosingMktPrice, 2) }}</td>
+
+                                                             {{-- <td>number_format($tl->MarketValue, 2)</td> --}}
+                                                              <td>{{ number_format($row->Int2Date, 2) }}</td>
+
+                                                            <td class="{{ ($row->CapitalGainLoss) < 0 ? 'sale' : 'buy' }} {{ ($row->CapitalGainLoss) == 0 ? 'mute' : 'null' }}">
+                                                                {{ number_format(abs($row->CapitalGainLoss) , 2) }} 
+
+                                                             </td>
+
+                                                                 </tr>
+                                                                 @endforeach
+
+                                                             </tbody>
+
+
+
+
+                                                             -- as above for tbills
+ <tbody class="row-details hide security-{{ $pl_tbills->SecurityID }}">
+                                                                @foreach( collect(\DB::select("EXEC procTBillsPL_Portfolio '$tradedate',  $current_user_id, $pl_tbills->SecurityID, 'Details'")) as $row)
+                                                                 <tr>
+                                                                    <td></td>
+                                                                     <td style="width: 100px">{{ $row->Security }}</td>
+                                                                    <td>{{ number_format($row->Position, 2) }}</td>
+                                                                    <td> {{ number_format($row->DiscountRate, 2) }}% </td>
+                                                                   
+                                                                    <td>{{ number_format($row->Yield*100, 2) }}%</td>
+                                                                     <td>{{ number_format($row->Price, 2) }}</td>
+                                                                    <td> {{ number_format($row->ClosingDiscRate, 2) }} </td>
+
+                                                             {{-- <td>number_format($tl->MarketValue, 2)</td> --}}
+                                                              <td>{{ number_format($row->Int2Date, 2) }}</td>
+
+                                                            <td class="{{ ($row->CapitalGainLoss) < 0 ? 'sale' : 'buy' }} {{ ($row->CapitalGainLoss) == 0 ? 'mute' : 'null' }}">
+                                                                {{ number_format(abs($row->CapitalGainLoss) , 2) }} 
+
+                                                             </td>
+                                                                 </tr>
+                                                                 @endforeach
+
+                                                             </tbody>

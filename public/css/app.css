@@ -1,0 +1,120 @@
+.abbr-avatar {
+  display: inline-block;
+  margin-top: 2px;
+  background: #f6a821;
+  color: #654307;
+  letter-spacing: -1px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 13px;
+  padding: 0;
+  border: 1px solid;
+  border-radius: 100%;
+}
+
+table.samp tr > td:nth-child(2) {
+  color: #fff;
+}
+
+form i {
+  color: #f5a721;
+}
+
+.datepicker tr th {
+  color: #222;
+}
+
+#rss-feeds ul li {
+  margin-bottom: 10px !important;
+  padding: 0 !important;
+  padding-bottom: 0px !important;
+}
+
+#rss-feeds ul li a {
+  font-size: 12px !important;
+}
+
+#rss-feeds ul li p {
+  font-size: 10px !important;
+}
+
+.sale {
+  color: #f43d5c !important;
+}
+
+.sale.mute {
+  color: #ddd !important;
+}
+
+.buy {
+  color: #39cb4e !important;
+}
+
+.buy.mute {
+  color: #ddd !important;
+}
+
+.panel-collapse .panel-body {
+  display: none;
+}
+
+/* iPads (portrait and landscape) ----------- */
+
+@media (max-width: 768px) {
+  .feed {
+    display: none;
+  }
+
+  #contentdiv {
+    margin-right: 0 !important;
+    width: calc(100%);
+  }
+
+  form .btn.col-xs-12 {
+    margin-top: 0 !important;
+  }
+
+  .tradeCard2 * {
+    font-size: 1em !important;
+  }
+
+  h3.m-b-none.server1 {
+    font-size: 14px !important;
+  }
+
+  .modal-dialog {
+    width: 100% !important;
+  }
+
+  .close-btn {
+    margin-bottom: 10px !important;
+  }
+
+  .balance-mobile {
+    padding: 20px 25px;
+  }
+
+  .balance-mobile p {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .balance-mobile .amount {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #48494b;
+  }
+
+  .balance-mobile .amount span {
+    color: #f6a821;
+    letter-spacing: 2px;
+  }
+
+  .modal-dialog {
+    overflow-y: scroll !important;
+  }
+}
+
